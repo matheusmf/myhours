@@ -1,0 +1,40 @@
+<div class="jumbotron">
+    <h1 class="text-center">
+        Bem-vindo ao MyHours
+    </h1>
+</div>
+
+<p ng-show="mensagem.texto">
+    {{mensagem.texto}}
+</p>
+
+<a ng-href="#/year" class="btn btn-primary">Novo</a>
+<input ng-model="filtro" type="search" placeholder="parte do nome">
+
+<p ng-show="years.length">
+    Anos cadastrados: {{years.length}}
+</p>
+<p ng-hide="years.length" class="text-info">
+    Não há anos cadastrados
+</p>
+
+<meu-painel titulo="Listagem de anos">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th>ANO</th>
+                <th class="text-center">AÇÃO</th>
+            </tr>
+            <tr ng-repeat="year in years | filter: filtro">
+                <td>
+                    <a ng-href="#/year/{{year._id}}">{{year.name}}</a>
+                </td>
+                <td class="text-center">
+                    <meu-botao-aviso nome="Remover"
+                                     acao="remove(year)">
+                    </meu-botao-aviso>
+                </td>
+            </tr>
+        </table>
+    </div>
+</meu-painel>

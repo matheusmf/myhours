@@ -1,0 +1,18 @@
+<h1 class="text-center">Ano</h1>
+<p ng-show="mensagem.texto">
+    {{mensagem.texto}}
+</p>
+
+<form ng-submit="salva()">
+    <div class="form-group">
+        <label for="nome">Ano</label>
+        <input type="text" class="form-control" id="name" name="name" required ng-model="year.name">
+    </div>
+    
+    <div>
+        <button type="submit" class="btn btn-primary">
+            Salvar
+        </button>
+        <a id="botao-voltar" meu-focus evento="yearSalvo" href="#/" class="btn btn-default">Voltar</a>
+    </div>
+</form>
